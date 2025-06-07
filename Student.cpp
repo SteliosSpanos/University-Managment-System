@@ -49,5 +49,5 @@ void Student::displayInfo(std::ostream& output) const {
 }
 
 void Student::receiveEmail(const std::string& message) const{
-	std::cout << std::endl << "O μαθητής " << getFullName() << " [ " << getEmail() << " ] έλαβε το μύνημα: " << message << std::endl;
+	std::cout << "O μαθητής " << getFullName() << " [ " << getEmail() << " ] έλαβε το μύνημα: " << message << std::endl;
 }

@@ -18,7 +18,7 @@ void Professor::displayInfo(std::ostream& output) const{
 }
 
 void Professor::receiveEmail(const std::string& message) const{
-	std::cout << std::endl << "Ο καθηγητής " << getFullName() << " [ " << getEmail() << " ] έλαβε το μύνημα: " << message << std::endl;
+	std::cout << "Ο καθηγητής " << getFullName() << " [ " << getEmail() << " ] έλαβε το μύνημα: " << message << std::endl;
 }
 
 

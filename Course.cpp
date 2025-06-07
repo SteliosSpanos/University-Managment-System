@@ -20,6 +20,6 @@ void Course::displayCourseInfo(std::ostream& output) const {
 		output << professor->getProfessorId() << std::endl;
 	}
 	else{
-		output << "Not Assigned" << std::endl;
+		output << "Δεν έχει ανατεθεί" << std::endl;
 	}
 }
