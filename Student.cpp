@@ -18,30 +18,37 @@ void Student::enrollCourse(Course* c) {
 	if(!c){
 		throw std::invalid_argument("Ο δείκτης μαθήματος είναι nullptr");
 	}
-	courses[c] = -1;
+	for(const auto& p : courses){
+		if(p.first == c){
+			throw std::invalid_argument("Το μάθημα έχει ήδη δηλωθεί");
+		}
+	}
+	courses.push_back({c, -1});
 }
 
 void Student::setGrade(Course* c, int grade) {
 	if(!c){
 		throw std::invalid_argument("Ο δείκτης μαθήματος είναι nullptr");
 	}
-	auto tmp = courses.find(c);
-	if(tmp == courses.end()){
-		throw std::invalid_argument("Ο μαθητής δεν είναι εγγεγραμμένος στο μάθημα");
+	for(auto& p : courses){
+		if(p.first == c){
+			p.second = grade;
+			return;
+		}
 	}
-	tmp->second = grade;
-
+	throw std::invalid_argument("Ο φοιτητής δεν είναι εγγεγραμμένος στο μάθημα");
 }
 
 int Student::getGrade(Course* c) const {
 	if(!c){
 		throw std::invalid_argument("Ο δείκτης μαθήματος είναι nullptr");
 	}
-	auto tmp = courses.find(c);
-	if(tmp == courses.end()){
-		throw std::invalid_argument("Δεν βρέθηκε βαθμός για αυτό το μάθημα");
+	for(const auto& p : courses){
+		if(p.first == c){
+			return p.second;
+		}
 	}
-	return tmp->second;
+	throw std::invalid_argument("Δεν βρέθηκε βαθμός για αυτό το μάθημα");
 }
 
 void Student::displayInfo(std::ostream& output) const {

@@ -2,13 +2,13 @@
 #include "Person.h"
 #include "Course.h"
 #include <string>
-#include <map>
+#include <vector>
 
 class Student : public Person{
 private:
 	std::string am;
 	unsigned int semester;
-	std::map<Course*, int> courses;
+	std::vector<std::pair<Course*, int>> courses;
 public:
 	Student(const std::string& _am, const char* _id, const std::string& _fullName, int _birthYear, const std::string& _address, const std::string& _phone, const std::string& _email, unsigned int semester);
 	Student(const std::string& _am, const char* _id, const std::string& _fullName, const std::string& _email, unsigned int _semester);
